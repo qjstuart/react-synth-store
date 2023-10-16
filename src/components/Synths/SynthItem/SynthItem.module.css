@@ -20,3 +20,15 @@
   color: #ad5502;
   font-size: 1.25rem;
 }
+
+.synth div:nth-of-type(1) {
+  flex: 1;
+}
+
+.synth div:nth-of-type(2) {
+  flex: 1;
+}
+
+.synth div:nth-of-type(3) {
+  flex: 0.25;
+}
