@@ -12,17 +12,23 @@ const Cart = (props) => {
 
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = () => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const cartItemAddHandler = () => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, quantity: 1 });
+  };
 
   const cartItems = (
     <ul className={styles["cart-items"]}>
+      {console.log("cartCtx.items: ", cartCtx.items)}
       {cartCtx.items.map((item) => (
         <CartItem
+          key={item.id}
           name={item.name}
           price={item.price}
-          amount={item.amount}
+          quantity={item.quantity}
           onRemove={() => cartItemRemoveHandler(item.id)}
           onAdd={() => cartItemAddHandler(item)}
         />

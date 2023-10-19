@@ -10,12 +10,12 @@ const SynthItem = (props) => {
 
   const cartCtx = useContext(CartContext);
 
-  const addToCardHandler = (enteredAmountNumber) => {
+  const addToCardHandler = (enteredQuantityNumber) => {
     cartCtx.addItem({
       id: props.id,
       name: props.name,
       price: props.price,
-      amount: enteredAmountNumber,
+      quantity: enteredQuantityNumber,
     })
   };
 

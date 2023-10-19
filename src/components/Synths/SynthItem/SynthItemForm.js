@@ -3,32 +3,32 @@ import Input from "../../UI/Input";
 import { useRef, useState } from "react";
 
 const SynthItemForm = (props) => {
-  const amountInputRef = useRef();
-  const [amountIsValid, setAmountIsValid] = useState(true);
+  const quantityInputRef = useRef();
+  const [quantityIsValid, setQuantityIsValid] = useState(true);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
+    const enteredQuantity = quantityInputRef.current.value;
+    const enteredQuantityNumber = +enteredQuantity;
 
     if (
-      enteredAmount.trim().length === "0" ||
-      enteredAmountNumber < 1 ||
-      enteredAmountNumber > 5
+      enteredQuantity.trim().length === "0" ||
+      enteredQuantityNumber < 1 ||
+      enteredQuantityNumber > 5
     ) {
-      setAmountIsValid(false);
+      setQuantityIsValid(false);
       return;
     }
-    props.onAddToCart(enteredAmountNumber);
+    props.onAddToCart(enteredQuantityNumber);
   };
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
       <Input
-        ref={amountInputRef}
-        label="Amount"
+        ref={quantityInputRef}
+        label="Quantity"
         input={{
-          id: `amount_${props.id}`,
+          id: `quantity_${props.id}`,
           type: "number",
           min: "1",
           max: "5",
@@ -37,8 +37,8 @@ const SynthItemForm = (props) => {
         }}
       />
       <button>Add</button>
-      {!amountIsValid && (
-        <p>Invalid amount! Please enter an amount betweeen 1-5</p>
+      {!quantityIsValid && (
+        <p>Invalid quantity! Please enter an quantity betweeen 1-5</p>
       )}
     </form>
   );
