@@ -8,7 +8,7 @@ import styles from "./Cart.module.css";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
+  const totalAmount = `${+cartCtx.totalAmount.toFixed(2)}`;
 
   const hasItems = cartCtx.items.length > 0;
 
@@ -41,7 +41,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={styles.total}>
         <span>Total Amount</span>
-        <span>{totalAmount}</span>
+        <span>{`€${totalAmount}`}</span>
       </div>
       <div className={styles.actions}>
         <button className={styles["button--alt"]} onClick={props.onClose}>
