@@ -10,7 +10,7 @@ const SynthItem = (props) => {
 
   const cartCtx = useContext(CartContext);
 
-  const addToCardHandler = (enteredQuantityNumber) => {
+  const addToCartHandler = (enteredQuantityNumber) => {
     cartCtx.addItem({
       id: props.id,
       name: props.name,
@@ -30,7 +30,7 @@ const SynthItem = (props) => {
         <SynthThumbnail src={props.thumbnail} />
       </div>
       <div>
-        <SynthItemForm id={props.id} onAddToCart={addToCardHandler} />
+        <SynthItemForm id={props.id} onAddToCart={addToCartHandler} />
       </div>
     </li>
   );
